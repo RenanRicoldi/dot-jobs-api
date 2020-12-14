@@ -92,11 +92,11 @@ usersRouter.delete('/:id', async (request, response) => {
 usersRouter.post('/login', async (request, response) => {
     const userRepository = getRepository(User)
 
-    const {email, password} = request.body;
+    const {email, password} = request.body
 
     const user = await userRepository.findOne({
         where: { email } 
-    });
+    })
     
     if(!user) {
         throw new Error('User not found with the provided email')
