@@ -1,3 +1,4 @@
+import { compare } from 'bcryptjs'
 import { Router } from 'express'
 import { getRepository } from 'typeorm'
 import { User } from '../models/User'
@@ -85,6 +86,27 @@ usersRouter.delete('/:id', async (request, response) => {
     await userRepository.remove(user)
 
     return response.json({ status: 'success', message: 'User deleted' })
+})
+
+
+usersRouter.post('/login', async (request, response) => {
+    const userRepository = getRepository(User)
+
+    const {email, password} = request.body;
+
+    const user = await userRepository.findOne({
+        where: { email } 
+    });
+    
+    if(!user) {
+        throw new Error('User not found with the provided email')
+    }
+
+    if(compare(password,user.password)){
+        return response.status(200).send(true)
+    }
+
+    return response.sendStatus(401)
 })
 
 export default usersRouter
