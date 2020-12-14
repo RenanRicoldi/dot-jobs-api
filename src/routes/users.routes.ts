@@ -102,7 +102,7 @@ usersRouter.post('/login', async (request, response) => {
         throw new Error('User not found with the provided email')
     }
 
-    if(compare(password,user.password)){
+    if(await compare(password,user.password)){
         return response.status(200).send(true)
     }
 
