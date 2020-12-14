@@ -26,10 +26,31 @@ class UpdateFreelancerService {
             throw new Error('Freelancer not found with the provided id')
         }
 
+        if(rg) {
+            const checkFreelancerExists = await freelancersRepository.findOne({
+                where: { rg },
+            })
+            if (checkFreelancerExists) {
+                throw new Error('RG already in use')
+            }
+            freelancer.rg = rg
+        }
+        if(cpf) {
+            const checkFreelancerExists = await freelancersRepository.findOne({
+                where: { cpf },
+            })
+            if (checkFreelancerExists) {
+                throw new Error('RG already in use')
+            }
+            freelancer.cpf = cpf
+        }
+
         if(cep) {
             freelancer.cep = cep
         }
         if(user_id) {
+            //Checar se usuário já existe?
+            //Não dar update em user_id?
             freelancer.user_id = user_id
         }
         if(address) {
@@ -40,12 +61,6 @@ class UpdateFreelancerService {
         }
         if(description) {
             freelancer.description = description
-        }
-        if(rg) {
-            freelancer.rg = rg
-        }
-        if(cpf) {
-            freelancer.cpf = cpf
         }
         if(rg_picture) {
             freelancer.rg_picture = rg_picture
