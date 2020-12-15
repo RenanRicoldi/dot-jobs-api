@@ -103,8 +103,8 @@ usersRouter.post('/login', async (request, response) => {
     }
 
     if(await compare(password,user.password)){
-        return response.status(200).send(true)
-    }
+        return response.status(200).json(user)
+    }   
 
     return response.sendStatus(401)
 })
