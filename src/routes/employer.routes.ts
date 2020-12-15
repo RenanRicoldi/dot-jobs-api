@@ -21,9 +21,13 @@ employersRouter.get('/:id', async (request, response) => {
     const employerId = request.params.id
     const employerRepository = getRepository(Employer)
 
-    const employers = await employerRepository.findOne(employerId)
+    const employer = await employerRepository.findOne(employerId, {
+        relations: ['user']
+    })
 
-    return response.json(employers)
+    employer?.user.password && (employer.user.password = '')
+
+    return response.json(employer)
 })
 
 // Cria uma rota Post no path '/employers/'.
