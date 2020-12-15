@@ -82,7 +82,7 @@ employersRouter.delete('/:id', async (request, response) => {
 
     await employerRepository.remove(employer)
 
-    return response.json({ status: 'success', message: 'User deleted' })
+    return response.json({ status: 'success', message: 'Employer deleted' })
 })
 
 export default employersRouter

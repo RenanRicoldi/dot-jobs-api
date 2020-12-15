@@ -92,7 +92,7 @@ freelancersRouter.delete('/:id', async (request, response) => {
 
     await freelancerRepository.remove(freelancer)
 
-    return response.json({ status: 'success', message: 'User deleted' })
+    return response.json({ status: 'success', message: 'Freelancer deleted' })
 })
 
 export default freelancersRouter
