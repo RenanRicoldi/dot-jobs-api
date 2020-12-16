@@ -8,7 +8,7 @@
   "scripts": {
     "dev:server": "ts-node-dev --inspect --transpile-only --ignore node_modules src/server.ts",
     "build": "tsc",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "typeorm": "npm run ts-node-dev ./node_modules/typeorm/cli.js",
     "start": "npm run typeorm migration:run && npm run dev:server"
   },
   "devDependencies": {
