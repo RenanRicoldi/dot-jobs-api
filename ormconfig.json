@@ -5,7 +5,6 @@
     "username": "kjgcwyylpgzisr",
     "password": "cdec203af44181f17f7a978ca3e3bb7f7488a7d5b23311d8beecca13f09c7a18",
     "database": "d1bduh1uoskqid",
-    "ssl": true,
     "dropSchema": false,
     "logging": true,
     "entities": [
