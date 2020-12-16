@@ -1,5 +1,6 @@
 // lib que utilizamos para criar o servidor
 import express, { Request, Response, NextFunction } from 'express'
+import 'express-async-errors'
 import 'reflect-metadata'
 
 // importa as rotas do servidor
