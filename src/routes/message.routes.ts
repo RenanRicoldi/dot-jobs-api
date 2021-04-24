@@ -20,7 +20,8 @@ messagesRouter.get('/byInterest/:interest_id', async (request, response) => {
 
     const messages = await messageRepository.find({
         where:{interest_id},
-        order:{created_at: "DESC"}
+        relations:['user'],
+        order:{created_at: "DESC"},
     })
 
     return response.json(messages)
