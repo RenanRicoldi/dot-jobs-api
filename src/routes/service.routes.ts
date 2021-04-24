@@ -14,6 +14,15 @@ servicesRouter.get('/', async (request, response) => {
     return response.json(services)
 })
 
+servicesRouter.get('/byEmployer/:employer_id', async (request, response) => {
+    const {employer_id} = request.params
+    const serviceRepository = getRepository(Service)
+
+    const services = await serviceRepository.find({employer_id})
+
+    return response.json(services)
+})
+
 servicesRouter.get('/:id', async (request, response) => {
     const serviceId = request.params.id
     const serviceRepository = getRepository(Service)
