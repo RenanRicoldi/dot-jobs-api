@@ -3,6 +3,7 @@ import { Router } from 'express'
 import employersRouter from './employer.routes'
 import freelancersRouter from './freelancer.route'
 import interestsRouter from './interest.routes'
+import messagesRouter from './message.routes'
 import servicesRouter from './service.routes'
 
 // importa um outro router para ser usado
@@ -21,6 +22,8 @@ routes.use('/freelancers', freelancersRouter)
 routes.use('/services', servicesRouter)
 
 routes.use('/interests', interestsRouter)
+
+routes.use('/messages', messagesRouter)
 
 // cria uma rota acessível por GET
 routes.get('/', (request, response) => {

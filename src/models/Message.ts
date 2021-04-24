@@ -1,18 +1,19 @@
 import {Entity, Column, OneToOne, JoinColumn, PrimaryGeneratedColumn, CreateDateColumn} from 'typeorm'
 import {Service} from './Service'
 import {Interest} from './Interest'
+import { User } from './User'
 
-@Entity('interests')
+@Entity('messages')
 export class Message {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
     @Column()
-    service_id: string
+    user_id: string
 
-    @OneToOne(() => Service)
-    @JoinColumn({ name: 'service_id' })
-    service: Service
+    @OneToOne(() => User)
+    @JoinColumn({ name: 'user_id' })
+    user: User
 
     @Column()
     interest_id: string

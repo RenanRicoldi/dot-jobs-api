@@ -15,7 +15,7 @@ export class CreateMessages1607737096110 implements MigrationInterface {
                         default: 'uuid_generate_v4()',
                     },
                     {
-                        name: 'service_id',
+                        name: 'user_id',
                         type: 'uuid',
                     },
                     {

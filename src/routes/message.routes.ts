@@ -14,6 +14,18 @@ messagesRouter.get('/', async (request, response) => {
     return response.json(messages)
 })
 
+messagesRouter.get('/byInterest/:interest_id', async (request, response) => {
+    const {interest_id} = request.params
+    const messageRepository = getRepository(Message)
+
+    const messages = await messageRepository.find({
+        where:{interest_id},
+        order:{created_at: "DESC"}
+    })
+
+    return response.json(messages)
+})
+
 messagesRouter.get('/:id', async (request, response) => {
     const messageId = request.params.id
     const messageRepository = getRepository(Message)
@@ -24,15 +36,15 @@ messagesRouter.get('/:id', async (request, response) => {
 })
 
 messagesRouter.post('/', async (request, response) => {
-    const { service_id, interest_id, message, created_at } = request.body
+    const { user_id, interest_id, message } = request.body
 
     const createMessage = new CreateMessageService()
 
     const messageCreate = await createMessage.execute({
-        service_id,
+        user_id,
         interest_id,
         message,
-        created_at
+        created_at:new Date()
     })
 
     return response.status(201).json(messageCreate)
