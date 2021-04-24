@@ -33,6 +33,7 @@ export class CreateService1607736380449 implements MigrationInterface {
                     {
                         name: 'conclusion_date',
                         type: 'timestamp',
+                        isNullable: true
                     }                    
                 ]
             })

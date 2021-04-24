@@ -53,7 +53,7 @@ export class CreateFreelancer1607718605273 implements MigrationInterface {
                         isNullable: false                        
                     },
                     {
-                        name: 'cep_picture',
+                        name: 'cpf_picture',
                         type: 'varchar',
                         isNullable: false                        
                     }

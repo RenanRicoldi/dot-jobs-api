@@ -22,6 +22,7 @@ app.disable('x-powered-by')
 // caso algum erro seja gerado durante uma rota ele ira chamar essa função para lidar
 app.use(
     (error: Error, request: Request, response: Response, _: NextFunction) => {
+        console.log(error.message)
         return response.status(400).json({
             status: 'error',
             message: error.message,

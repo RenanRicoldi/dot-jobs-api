@@ -1,6 +1,9 @@
 // importa um router, que irá criar rotas no nosso servidor
 import { Router } from 'express'
 import employersRouter from './employer.routes'
+import freelancersRouter from './freelancer.route'
+import interestsRouter from './interest.routes'
+import servicesRouter from './service.routes'
 
 // importa um outro router para ser usado
 import usersRouter from './users.routes'
@@ -12,6 +15,12 @@ const routes = Router()
 routes.use('/users', usersRouter)
 
 routes.use('/employers', employersRouter)
+
+routes.use('/freelancers', freelancersRouter)
+
+routes.use('/services', servicesRouter)
+
+routes.use('/interests', interestsRouter)
 
 // cria uma rota acessível por GET
 routes.get('/', (request, response) => {

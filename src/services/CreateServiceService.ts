@@ -13,7 +13,7 @@ interface Request {
 class CreateServiceService {
     public async execute({ employer_id, description, price, localization, conclusion_date }: Request): Promise<Service> {
         const servicesRepository = getRepository(Service)
-
+        
         const service = servicesRepository.create({
             employer_id,
             description,
@@ -21,6 +21,8 @@ class CreateServiceService {
             localization,
             conclusion_date
         })
+
+        console.log(service)
 
         await servicesRepository.save(service)
 
