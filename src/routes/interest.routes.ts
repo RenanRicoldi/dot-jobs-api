@@ -27,7 +27,9 @@ interestsRouter.get('/byFreelancer/:freelancer_id', async (request, response) =>
     const {freelancer_id} = request.params
     const interestRepository = getRepository(Interest)
 
-    const interests = await interestRepository.find({freelancer_id})
+    const interests = await interestRepository.find({where:{freelancer_id},
+        relations: ['freelancer','service','freelancer.user','service.employer','service.employer.user']
+    })
 
     return response.json(interests)
 })
@@ -36,7 +38,9 @@ interestsRouter.get('/byService/:service_id', async (request, response) => {
     const {service_id} = request.params
     const interestRepository = getRepository(Interest)
 
-    const interests = await interestRepository.find({service_id})
+    const interests = await interestRepository.find({where:{service_id},
+        relations: ['freelancer','service','freelancer.user','service.employer','service.employer.user']
+    })
 
     return response.json(interests)
 })
