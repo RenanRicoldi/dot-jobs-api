@@ -23,6 +23,24 @@ interestsRouter.get('/:id', async (request, response) => {
     return response.json(interests)
 })
 
+interestsRouter.get('/byFreelancer/:freelancer_id', async (request, response) => {
+    const {freelancer_id} = request.params
+    const interestRepository = getRepository(Interest)
+
+    const interests = await interestRepository.find({freelancer_id})
+
+    return response.json(interests)
+})
+
+interestsRouter.get('/byService/:service_id', async (request, response) => {
+    const {service_id} = request.params
+    const interestRepository = getRepository(Interest)
+
+    const interests = await interestRepository.find({service_id})
+
+    return response.json(interests)
+})
+
 interestsRouter.post('/', async (request, response) => {
     const { service_id, freelancer_id, status } = request.body
 
