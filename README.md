@@ -48,3 +48,7 @@ Para configurar o Banco de dados:
     exit
     yarn typeorm migration:run
 ```
+
+### Testes
+
+Para rodar os testes basta executar: `yarn test`
