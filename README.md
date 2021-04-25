@@ -49,6 +49,6 @@ Para configurar o Banco de dados:
     yarn typeorm migration:run
 ```
 
-### Testes
+## Testes
 
-Para rodar os testes basta executar: `yarn test`
+Para rodar os testes basta executar: `yarn test`. Este comando ira executar todos os testes localizados na pasta `__test__`
