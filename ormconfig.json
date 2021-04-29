@@ -1,12 +1,10 @@
 {
     "type": "postgres",
-    "host": "ec2-35-169-184-61.compute-1.amazonaws.com",
+    "host": "localhost",
     "port": "5432",
-    "username": "kjgcwyylpgzisr",
-    "password": "cdec203af44181f17f7a978ca3e3bb7f7488a7d5b23311d8beecca13f09c7a18",
-    "database": "d1bduh1uoskqid",
-    "dropSchema": false,
-    "logging": true,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "dot_jobs",
     "entities": [
         "./src/models/*.ts"
     ],

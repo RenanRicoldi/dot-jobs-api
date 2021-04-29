@@ -25,7 +25,7 @@ describe('Users', () => {
         return conn.close()
     })
 
-    test('it should create an employer and fetch it', async () =>{
+    test('it should create an employer', async () =>{
         
         const user = await new CreateUserService().execute({ 
             email: 'test@test.com', 
