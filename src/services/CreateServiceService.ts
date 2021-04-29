@@ -22,8 +22,6 @@ class CreateServiceService {
             conclusion_date
         })
 
-        console.log(service)
-
         await servicesRepository.save(service)
 
         return service
